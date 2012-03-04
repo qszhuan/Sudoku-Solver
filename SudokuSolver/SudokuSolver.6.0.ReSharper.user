@@ -1,0 +1,32 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="FE2F5BE1-17AC-4EDF-857A-A715976C6DE8/f:Program.cs" caret="70" fromTop="6" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="145" fromTop="7" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="FE2F5BE1-17AC-4EDF-857A-A715976C6DE8/f:Program.cs" caret="0" fromTop="0" />
+      <File id="FE2F5BE1-17AC-4EDF-857A-A715976C6DE8/f:Program.cs" caret="47" fromTop="2" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="153" fromTop="7" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="171" fromTop="9" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+</Configuration>
