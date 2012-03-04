@@ -1,0 +1,7 @@
+bin
+obj
+_ReSharper*
+.hg*
+.user
+.Resharper
+.suo
