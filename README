@@ -1,0 +1,10 @@
+9*9
+
+cell:
+ Value
+ Candidates
+ Fix
+
+CandidateProvider
+ Rule: distinct in row|column|region
+  
