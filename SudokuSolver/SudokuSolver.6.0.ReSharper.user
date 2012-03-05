@@ -2,13 +2,42 @@
   <RecentFiles>
     <RecentFiles>
       <File id="FE2F5BE1-17AC-4EDF-857A-A715976C6DE8/f:Program.cs" caret="70" fromTop="6" />
-      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="145" fromTop="7" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:Position.cs" caret="327" fromTop="11" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:Cell.cs" caret="486" fromTop="19" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="454" fromTop="11" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="2557" fromTop="21" />
     </RecentFiles>
     <RecentEdits>
-      <File id="FE2F5BE1-17AC-4EDF-857A-A715976C6DE8/f:Program.cs" caret="0" fromTop="0" />
-      <File id="FE2F5BE1-17AC-4EDF-857A-A715976C6DE8/f:Program.cs" caret="47" fromTop="2" />
-      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="153" fromTop="7" />
-      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="171" fromTop="9" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="2575" fromTop="14" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="0" fromTop="1" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="2578" fromTop="21" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="393" fromTop="12" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:Cell.cs" caret="360" fromTop="14" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:Cell.cs" caret="721" fromTop="23" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="425" fromTop="6" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="1305" fromTop="14" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="2844" fromTop="27" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="2844" fromTop="25" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:Position.cs" caret="263" fromTop="7" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:Position.cs" caret="327" fromTop="11" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:Cell.cs" caret="486" fromTop="19" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="833" fromTop="18" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="920" fromTop="14" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="766" fromTop="9" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="1943" fromTop="11" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="2578" fromTop="19" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="170" fromTop="7" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="2820" fromTop="26" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="2426" fromTop="20" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="1952" fromTop="23" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="2132" fromTop="26" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="2089" fromTop="11" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="2508" fromTop="16" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="1038" fromTop="14" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuBoard.cs" caret="1602" fromTop="26" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="2048" fromTop="15" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="2271" fromTop="12" />
+      <File id="EB0C739A-2A7C-4C6F-A825-BB985F157662/f:SudokuSolverFacts.cs" caret="2555" fromTop="21" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -26,7 +55,130 @@
     <string />
     <integer />
     <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
       <setting name="SolutionAnalysisEnabled">False</setting>
     </boolean>
   </SettingsComponent>
+  <UnitTestSessions>
+    <Session>
+      <Name>Session #1</Name>
+      <Elements>
+        <UnitTestElement Provider="xUnit" Id="SudokuSolverTest.SudokuSolverFacts" type="XunitTestClassElement" projectId="EB0C739A-2A7C-4C6F-A825-BB985F157662" />
+        <UnitTestElement Provider="xUnit" Id="SudokuSolverTest.SudokuSolverFacts.should_can_not_set_value_when_cell_is_fixed" type="XunitTestMethodElement" projectId="EB0C739A-2A7C-4C6F-A825-BB985F157662" typeName="SudokuSolverTest.SudokuSolverFacts" methodName="should_can_not_set_value_when_cell_is_fixed" skipReason="" />
+        <UnitTestElement Provider="xUnit" Id="SudokuSolverTest.SudokuSolverFacts.should_get_a_clone_of_cell" ParentId="SudokuSolverTest.SudokuSolverFacts" type="XunitTestMethodElement" projectId="EB0C739A-2A7C-4C6F-A825-BB985F157662" typeName="SudokuSolverTest.SudokuSolverFacts" methodName="should_get_a_clone_of_cell" skipReason="" />
+        <UnitTestElement Provider="xUnit" Id="SudokuSolverTest.SudokuSolverFacts.should_get_candidates_for_mutable_cell" ParentId="SudokuSolverTest.SudokuSolverFacts" type="XunitTestMethodElement" projectId="EB0C739A-2A7C-4C6F-A825-BB985F157662" typeName="SudokuSolverTest.SudokuSolverFacts" methodName="should_get_candidates_for_mutable_cell" skipReason="" />
+        <UnitTestElement Provider="xUnit" Id="SudokuSolverTest.SudokuSolverFacts.should_get_empty_candidates_for_immutable_cell" ParentId="SudokuSolverTest.SudokuSolverFacts" type="XunitTestMethodElement" projectId="EB0C739A-2A7C-4C6F-A825-BB985F157662" typeName="SudokuSolverTest.SudokuSolverFacts" methodName="should_get_empty_candidates_for_immutable_cell" skipReason="" />
+        <UnitTestElement Provider="xUnit" Id="SudokuSolverTest.SudokuSolverFacts.should_raise_exception_when_set_value_not_in_0_to_9_and_value_is_mutable" ParentId="SudokuSolverTest.SudokuSolverFacts" type="XunitTestMethodElement" projectId="EB0C739A-2A7C-4C6F-A825-BB985F157662" typeName="SudokuSolverTest.SudokuSolverFacts" methodName="should_raise_exception_when_set_value_not_in_0_to_9_and_value_is_mutable" skipReason="" />
+        <UnitTestElement Provider="xUnit" Id="SudokuSolverTest.SudokuSolverFacts.should_set_the_cell_value_for" ParentId="SudokuSolverTest.SudokuSolverFacts" type="XunitTestMethodElement" projectId="EB0C739A-2A7C-4C6F-A825-BB985F157662" typeName="SudokuSolverTest.SudokuSolverFacts" methodName="should_set_the_cell_value_for" skipReason="" />
+      </Elements>
+    </Session>
+  </UnitTestSessions>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="CSharpCodeCompletionContext">
+      <Item value="public" priority="350" />
+      <Item value="void" priority="223" />
+      <Item value="new" priority="1151" />
+      <Item value="Assert`0" priority="447" />
+      <Item value="cell" priority="415" />
+      <Item value="true" priority="63" />
+      <Item value="SudokuBoard`0" priority="63" />
+      <Item value="sudokuBoard" priority="319" />
+      <Item value="List" priority="513" />
+      <Item value="Cells" priority="31" />
+      <Item value="List&lt;List&lt;Cell&gt;&gt;" priority="57" />
+      <Item value="List&lt;Cell&gt;" priority="86" />
+      <Item value="Cell" priority="289" />
+      <Item value="return" priority="255" />
+      <Item value="_cells" priority="573" />
+      <Item value="GetHashCode`0" priority="31" />
+      <Item value="Array`0" priority="87" />
+      <Item value="arrays" priority="95" />
+      <Item value="list" priority="127" />
+      <Item value="foreach" priority="63" />
+      <Item value="Clone`0" priority="26" />
+      <Item value="Cell`0" priority="221" />
+      <Item value="cells" priority="127" />
+      <Item value="row" priority="31" />
+      <Item value="sellRow" priority="31" />
+      <Item value="for" priority="159" />
+      <Item value="false" priority="95" />
+      <Item value="Fact`0" priority="31" />
+      <Item value="initial" priority="95" />
+      <Item value="_value" priority="31" />
+      <Item value="Immutable" priority="31" />
+      <Item value="clone" priority="95" />
+      <Item value="if" priority="63" />
+      <Item value="value" priority="127" />
+      <Item value="throw" priority="31" />
+      <Item value="ArgumentOutOfRangeException" priority="28" />
+      <Item value="ArgumentOutOfRangeException`0" priority="31" />
+      <Item value="NewsStyleUriParser`0" priority="63" />
+      <Item value="SudokuBoard" priority="86" />
+      <Item value="NW" priority="31" />
+      <Item value="Position`0" priority="30" />
+      <Item value="enum" priority="30" />
+      <Item value="boardPos" priority="31" />
+      <Item value="int" priority="188" />
+      <Item value="xPos" priority="382" />
+      <Item value="yPos" priority="382" />
+      <Item value="Fact" priority="63" />
+      <Item value="bool" priority="31" />
+      <Item value="immutable" priority="31" />
+      <Item value="cadidates" priority="159" />
+      <Item value="private" priority="31" />
+      <Item value="ints" priority="127" />
+      <Item value="array" priority="31" />
+      <Item value="rowCadidates" priority="127" />
+      <Item value="i" priority="95" />
+      <Item value="quadrantX" priority="63" />
+      <Item value="quadrantY" priority="62" />
+      <Item value="x" priority="31" />
+      <Item value="y" priority="31" />
+      <Item value="columnCadidates" priority="31" />
+      <Item value="squareCadidates" priority="31" />
+      <Item value="_scopes" priority="31" />
+      <Item value="valuesSet" priority="31" />
+      <Item value="IEnumerable" priority="31" />
+      <Item value="candidates" priority="31" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Xunit.Assert">
+      <Item value="Equal`1" priority="296" />
+      <Item value="NotEqual`1" priority="26" />
+      <Item value="Throws`0" priority="26" />
+      <Item value="DoesNotThrow`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SudokuSolverTest.Cell">
+      <Item value="Value" priority="594" />
+      <Item value="Immutable" priority="216" />
+      <Item value="Clone" priority="108" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="ToList`1" priority="109" />
+      <Item value="CopyTo`0" priority="80" />
+      <Item value="ForEach`0" priority="53" />
+      <Item value="Add`0" priority="221" />
+      <Item value="ToArray`0" priority="53" />
+      <Item value="First`1" priority="27" />
+      <Item value="Count" priority="54" />
+      <Item value="Capacity" priority="53" />
+      <Item value="AddRange`0" priority="27" />
+      <Item value="Select`2" priority="26" />
+      <Item value="RemoveAt`0" priority="26" />
+      <Item value="Intersect`1" priority="27" />
+      <Item value="Union`1" priority="27" />
+      <Item value="Except`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SudokuSolverTest.SudokuBoard">
+      <Item value="Cells" priority="80" />
+      <Item value="GetHashCode`0" priority="26" />
+      <Item value="Set`0" priority="26" />
+      <Item value="GetCandidates`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="ToList`1" priority="53" />
+      <Item value="ToArray`1" priority="53" />
+      <Item value="Union`1" priority="26" />
+      <Item value="Distinct`1" priority="26" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
 </Configuration>
