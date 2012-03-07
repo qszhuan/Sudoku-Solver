@@ -1,94 +1,115 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace SudokuSolverTest
 {
     public class SudokuBoard
     {
-        private List<int> _scopes = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        public static List<int> Scopes = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
         private readonly List<Cell> _cells = new List<Cell>();
-        private const int BoardSize = 81;
+        private ICandidateRule _candidateRule;
+        public const int BoardSize = EdgeSize*EdgeSize;
+        public const int EdgeSize = 3*3;
+        public const int SquareEdgeSize = 3;
+        public string Answer
+        {
+         get
+         {
+             var builder = new StringBuilder();
+             for (var i = 0; i < EdgeSize; i++)
+             {
+                 builder.AppendFormat("|{0}{1}", string.Join("|", _cells.GetRange(i*EdgeSize, EdgeSize).Select(c=>c.Value)), Environment.NewLine);
+             }
+             return builder.ToString();
+         }   
+        }
 
         public SudokuBoard()
+        {
+            Initlize();
+        }
+
+        public List<Cell> Cells
+        {
+            get{return _cells.Select(cell => cell.Clone).ToList();}
+        }
+
+        public bool Solved 
+        {
+            get
+            {
+                for (int i = 0; i < BoardSize; i++)
+                {
+                    
+                }
+                return true;
+            }
+        }
+
+
+        public bool Set(int xPos, int yPos, int value, bool locked = false)
+        {
+            if (!_candidateRule.GetCandidates(xPos, yPos).Contains(value)) return false;
+
+            _cells[xPos*9 + yPos].Value = value;
+            _cells[xPos*9 + yPos].Locked = locked;
+            return true;
+        }
+
+        public Cell Get(int xPos, int yPos)
+        {
+            return _cells[xPos * EdgeSize + yPos].Clone;
+        }
+
+        private void Initlize()
         {
             for (var i = 0; i < BoardSize; i++)
             {
                 _cells.Add(new Cell());
             }
+            _candidateRule = new GeneralCandidateRule(_cells);
         }
 
-        public List<Cell> Cells
+        public void Make(List<int> dataList)
+        {
+            for (var i = 0; i < dataList.Count; i++)
+            {
+               _cells[i].Value = dataList[i];
+                _cells[i].Locked = i != 0;
+            }
+        }
+
+        public void Solve()
+        {
+            ResetIndex();
+
+        }
+
+        private int _currentIndex = 0;
+
+
+        private Cell Current
+        {
+            get { return _cells[_currentIndex]; }
+        }
+        private Cell Next
         {
             get
             {
-                return _cells.Select(cell => cell.Clone).ToList();
+                return _currentIndex == 80 ? null : _cells[++_currentIndex];
             }
         }
-
-        
-        public void Set(int xPos, int yPos, int value, bool immutable = false)
+        private void ResetIndex()
         {
-            _cells[xPos*9 + yPos].Value = value;
-            _cells[xPos*9 + yPos].Immutable = immutable;
+            _currentIndex = 0;
         }
 
-        public Cell Get(int xPos, int yPos)
+        private Cell Previous
         {
-            return _cells[xPos*9 + yPos].Clone;
-        }
-
-        public List<int> GetCandidates(int xPos, int yPos)
-        {
-            var cadidates = new List<int>();
-            if (_cells[xPos*9 + yPos].Immutable)
-            {
-                return cadidates;
-            }
-            var rowCadidates = GetRowCadidates(xPos, yPos);
-            var columnCadidates = GetColumnCadidates(xPos, yPos);
-            var squareCadidates = GetSquareCadidates(xPos, yPos);
-
-            var valuesSet = rowCadidates.Union(columnCadidates).Union(squareCadidates).Distinct();
-            return  _scopes.Except(valuesSet).ToList();
-        }
-
-        private IEnumerable<int> GetSquareCadidates(int xPos, int yPos)
-        {
-            var ints = new List<int>();
-            var quadrantY = yPos/3;
-            var quadrantX = xPos/3;
-            for (var x = quadrantX*3; x < quadrantX*3+3; x++)
-            {
-                for (var y = quadrantY; y < quadrantY*3+3; y++)
-                {
-                    ints.Add(_cells[x*9+y].Value);
-                }
-            }
-            return ints;
-        }
-
-        private IEnumerable<int> GetColumnCadidates(int xPos, int yPos)
-        {
-            var columnCadidates = new List<int>();
-            for (var i = 0 ; i < 9; i++)
-            {
-                columnCadidates.Add(_cells[i*9 + yPos].Value);
-            }
-            columnCadidates.RemoveAt(xPos*9 + yPos);
-            return columnCadidates; 
-        }
-
-        private IEnumerable<int> GetRowCadidates(int xPos, int yPos)
-        {
-            var rowCadidates = new List<int>();
-            for (var i = xPos*9; i < (xPos + 1)*9; i++)
-            {
-                rowCadidates.Add(_cells[i].Value);
-            }
-            rowCadidates.RemoveAt(yPos);
-            return rowCadidates;
+            get { return _currentIndex == 0 ? null : _cells[--_currentIndex]; }
         }
     }
 }

@@ -10,24 +10,24 @@ namespace SudokuSolverTest
             get { return _value; }
             set
             {
-                if (Immutable) return;
+                if (Locked) return;
                 if(value > 9 || value < 0)
                     throw new ArgumentOutOfRangeException("Value","value is not in [0-9]");
                 _value = value;
             }
         }
 
-        public bool Immutable { get; set; }
+        public bool Locked { get; set; }
 
         public Cell Clone
         {
-            get { return new Cell(_value, Immutable); }
+            get { return new Cell(_value, Locked); }
         }
 
-        public Cell(int value = 0, bool immutable = false)
+        public Cell(int value = 0, bool locked = false)
         {
             Value = value;
-            Immutable = immutable;
+            Locked = locked;
         }
     }
 }
