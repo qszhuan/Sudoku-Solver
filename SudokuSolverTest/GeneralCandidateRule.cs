@@ -6,9 +6,9 @@ namespace SudokuSolverTest
 {
     public class GeneralCandidateRule : ICandidateRule
     {
-        private readonly List<Cell> _cells = new List<Cell>();
+        private readonly List<CellWrapper> _cells = new List<CellWrapper>();
 
-        public GeneralCandidateRule(List<Cell> cells)
+        public GeneralCandidateRule(List<CellWrapper> cells)
         {
             if (cells.Count != SudokuBoard.BoardSize)
             {
@@ -32,6 +32,13 @@ namespace SudokuSolverTest
             return SudokuBoard.Scopes.Except(valuesSet).ToList();
         }
 
+        public List<int> GetCandidates(int index)
+        {
+            var xPos = index/SudokuBoard.EdgeSize;
+            var yPos = index%SudokuBoard.EdgeSize;
+            return GetCandidates(xPos, yPos);
+        }
+
         private IEnumerable<int> GetRowCadidates(int xPos, int yPos)
         {
             var rowCadidates = new List<int>();
@@ -50,19 +57,19 @@ namespace SudokuSolverTest
             {
                 columnCadidates.Add(_cells[i * SudokuBoard.EdgeSize + yPos].Value);
             }
-            columnCadidates.RemoveAt(xPos * SudokuBoard.EdgeSize + yPos);
+            columnCadidates.RemoveAt(xPos);
             return columnCadidates; 
         }
 
         private IEnumerable<int> GetSquareCadidates(int xPos, int yPos)
         {
             var ints = new List<int>();
-            var quadrantY = yPos / SudokuBoard.SquareEdgeSize;
             var quadrantX = xPos / SudokuBoard.SquareEdgeSize;
+            var quadrantY = yPos / SudokuBoard.SquareEdgeSize;
 
             for (var x = quadrantX * SudokuBoard.SquareEdgeSize; x < (quadrantX+1) * SudokuBoard.SquareEdgeSize; x++)
             {
-                for (var y = quadrantY; y < (quadrantY+1) * SudokuBoard.SquareEdgeSize; y++)
+                for (var y = quadrantY*SudokuBoard.SquareEdgeSize; y < (quadrantY+1) * SudokuBoard.SquareEdgeSize; y++)
                 {
                     ints.Add(_cells[x * SudokuBoard.EdgeSize + y].Value);
                 }

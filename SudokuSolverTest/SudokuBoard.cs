@@ -9,11 +9,12 @@ namespace SudokuSolverTest
     {
         public static List<int> Scopes = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-        private readonly List<Cell> _cells = new List<Cell>();
+        private readonly List<CellWrapper> _cells = new List<CellWrapper>();
         private ICandidateRule _candidateRule;
         public const int BoardSize = EdgeSize*EdgeSize;
         public const int EdgeSize = 3*3;
         public const int SquareEdgeSize = 3;
+
         public string Answer
         {
          get
@@ -32,26 +33,20 @@ namespace SudokuSolverTest
             Initlize();
         }
 
-        public List<Cell> Cells
+        public List<CellWrapper> Cells
         {
-            get{return _cells.Select(cell => cell.Clone).ToList();}
+            
+            get { return _cells; }
         }
-
-        public bool Solved 
-        {
-            get
-            {
-                for (int i = 0; i < BoardSize; i++)
-                {
-                    
-                }
-                return true;
-            }
-        }
-
 
         public bool Set(int xPos, int yPos, int value, bool locked = false)
         {
+            if (value == 0)
+            {
+                _cells[xPos * 9 + yPos].Value = value;
+                return true;
+            }
+
             if (!_candidateRule.GetCandidates(xPos, yPos).Contains(value)) return false;
 
             _cells[xPos*9 + yPos].Value = value;
@@ -68,7 +63,7 @@ namespace SudokuSolverTest
         {
             for (var i = 0; i < BoardSize; i++)
             {
-                _cells.Add(new Cell());
+                _cells.Add(new CellWrapper());
             }
             _candidateRule = new GeneralCandidateRule(_cells);
         }
@@ -77,39 +72,37 @@ namespace SudokuSolverTest
         {
             for (var i = 0; i < dataList.Count; i++)
             {
-               _cells[i].Value = dataList[i];
-                _cells[i].Locked = i != 0;
+                _cells[i].Locked = false;
+                _cells[i].Value = dataList[i];
+                _cells[i].Locked = dataList[i] != 0;
             }
         }
 
         public void Solve()
         {
-            ResetIndex();
-
-        }
-
-        private int _currentIndex = 0;
-
-
-        private Cell Current
-        {
-            get { return _cells[_currentIndex]; }
-        }
-        private Cell Next
-        {
-            get
+            for (var i = 0; i < BoardSize; i++)
             {
-                return _currentIndex == 80 ? null : _cells[++_currentIndex];
+                _cells[i].Candidates = new Stack<int>(_candidateRule.GetCandidates(i));
             }
-        }
-        private void ResetIndex()
-        {
-            _currentIndex = 0;
-        }
+            for (var i = 0; i < BoardSize;)
+            {
+                if (_cells[i].Set())
+                {
+                    if (++i == BoardSize) break;
 
-        private Cell Previous
-        {
-            get { return _currentIndex == 0 ? null : _cells[--_currentIndex]; }
+                    _cells[i].Candidates = new Stack<int>(_candidateRule.GetCandidates(i));
+                    continue;
+                }
+                while (--i != 0)
+                {
+                    if (i < 0)
+                    {
+                        Console.Error.WriteLine("No Answer");
+                        break;
+                    }
+                    if (!_cells[i].Locked) break;
+                }
+            }
         }
     }
 }
