@@ -41,9 +41,13 @@
     <Reference Include="xunit">
       <HintPath>..\..\..\c#\c#ref\xunit-1.8\xunit.dll</HintPath>
     </Reference>
+    <Reference Include="xunit.extensions">
+      <HintPath>..\..\..\c#\c#ref\xunit-1.8\xunit.extensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cell.cs" />
+    <Compile Include="CellFacts.cs" />
     <Compile Include="CellWrapper.cs" />
     <Compile Include="GeneralCandidateRule.cs" />
     <Compile Include="ICandidateRule.cs" />
