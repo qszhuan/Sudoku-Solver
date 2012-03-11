@@ -17,61 +17,52 @@ namespace SudokuSolverTest
             _cells = cells;
         }
 
-        public List<int> GetCandidates(int xPos, int yPos)
+        public List<int> GetCandidates(Position position)
         {
             var cadidates = new List<int>();
-            if (_cells[xPos*SudokuBoard.EdgeSize + yPos].Locked)
-            {
-                return cadidates;
-            }
-            var rowCadidates = GetRowCadidates(xPos, yPos);
-            var columnCadidates = GetColumnCadidates(xPos, yPos);
-            var squareCadidates = GetSquareCadidates(xPos, yPos);
+            if (_cells[position.Index].Locked) return cadidates;
+
+            var rowCadidates = GetRowCadidates(position);
+            var columnCadidates = GetColumnCadidates(position);
+            var squareCadidates = GetSquareCadidates(position);
 
             var valuesSet = rowCadidates.Union(columnCadidates).Union(squareCadidates).Distinct();
             return SudokuBoard.Scopes.Except(valuesSet).ToList();
         }
 
-        public List<int> GetCandidates(int index)
-        {
-            var xPos = index/SudokuBoard.EdgeSize;
-            var yPos = index%SudokuBoard.EdgeSize;
-            return GetCandidates(xPos, yPos);
-        }
-
-        private IEnumerable<int> GetRowCadidates(int xPos, int yPos)
+        private IEnumerable<int> GetRowCadidates(Position position)
         {
             var rowCadidates = new List<int>();
-            for (var i = xPos * SudokuBoard.EdgeSize; i < (xPos + 1) * SudokuBoard.EdgeSize; i++)
+            for (var y = 0; y < SudokuBoard.EdgeSize; y++)
             {
-                rowCadidates.Add(_cells[i].Value);
+                rowCadidates.Add(_cells[new Position(position.XPos, y).Index].Value);
             }
-            rowCadidates.RemoveAt(yPos);
+            rowCadidates.RemoveAt(position.YPos);
             return rowCadidates;
         }
 
-        private IEnumerable<int> GetColumnCadidates(int xPos, int yPos)
+        private IEnumerable<int> GetColumnCadidates(Position position)
         {
             var columnCadidates = new List<int>();
             for (var i = 0; i < SudokuBoard.EdgeSize; i++)
             {
-                columnCadidates.Add(_cells[i * SudokuBoard.EdgeSize + yPos].Value);
+                columnCadidates.Add(_cells[new Position(i, position.YPos).Index].Value);
             }
-            columnCadidates.RemoveAt(xPos);
+            columnCadidates.RemoveAt(position.XPos);
             return columnCadidates; 
         }
 
-        private IEnumerable<int> GetSquareCadidates(int xPos, int yPos)
+        private IEnumerable<int> GetSquareCadidates(Position position)
         {
             var ints = new List<int>();
-            var quadrantX = xPos / SudokuBoard.SquareEdgeSize;
-            var quadrantY = yPos / SudokuBoard.SquareEdgeSize;
+            var squareOriginX = position.SquareOriginX();
+            var squareOriginY = position.SquareOriginY();
 
-            for (var x = quadrantX * SudokuBoard.SquareEdgeSize; x < (quadrantX+1) * SudokuBoard.SquareEdgeSize; x++)
+            for (var x = squareOriginX; x < squareOriginX + SudokuBoard.SquareEdgeSize; x++)
             {
-                for (var y = quadrantY*SudokuBoard.SquareEdgeSize; y < (quadrantY+1) * SudokuBoard.SquareEdgeSize; y++)
+                for (var y = squareOriginY; y < squareOriginY + SudokuBoard.SquareEdgeSize; y++)
                 {
-                    ints.Add(_cells[x * SudokuBoard.EdgeSize + y].Value);
+                    ints.Add(_cells[new Position(x,y).Index].Value);
                 }
             }
             return ints;

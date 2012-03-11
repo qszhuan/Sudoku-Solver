@@ -51,6 +51,7 @@
     <Compile Include="CellWrapper.cs" />
     <Compile Include="GeneralCandidateRule.cs" />
     <Compile Include="ICandidateRule.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="SudokuBoard.cs" />
     <Compile Include="SudokuSolverFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,7 +4,6 @@ namespace SudokuSolverTest
 {
     public interface ICandidateRule
     {
-        List<int> GetCandidates(int xPos, int yPos);
-        List<int> GetCandidates(int index);
+        List<int> GetCandidates(Position position);
     }
 }

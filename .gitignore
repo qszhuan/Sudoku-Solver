@@ -4,4 +4,4 @@ _ReSharper*
 .hg*
 .user
 .Resharper
-.suo
+*.suo

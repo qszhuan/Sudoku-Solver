@@ -60,31 +60,36 @@ namespace SudokuSolverTest
         {
             var sudokuBoard = new SudokuBoard();
             var cells = sudokuBoard.Cells;
-            cells[0].Value = 1;
 
             Assert.Equal(81, cells.Count);
-            sudokuBoard.Cells.ForEach(cell=> Assert.Equal(0, cell.Value));
+            sudokuBoard.Cells.ForEach(cell => Assert.Equal(0, cell.Value));
+            cells[0].Value = 1;
+            Assert.Equal(1, cells[0].Value);
+
         }
 
         [Fact]
         public void should_set_the_cell_value_for()
         {
             var sudokuBoard = new SudokuBoard();
-            sudokuBoard.Set(0, 0, 9);
-            sudokuBoard.Set(8, 8, 1, true);
+            var position = new Position(0, 0);
+            sudokuBoard.Set(position, 9, false);
+            Assert.Equal(9, sudokuBoard.Get(position).Value);
 
-            Assert.Equal(9, sudokuBoard.Get(0,0).Value);
-            Assert.Equal(1, sudokuBoard.Get(8,8).Value);
-            Assert.Equal(true, sudokuBoard.Get(8,8).Locked);
+            position = new Position(8, 8);
+            sudokuBoard.Set(position, 1, true);
+            Assert.Equal(1, sudokuBoard.Get(position).Value);
+            Assert.Equal(true, sudokuBoard.Get(position).Locked);
         }
 
         [Fact]
         public void should_get_empty_candidates_for_locked_cell()
         {
             var sudokuBoard = new SudokuBoard();
-            sudokuBoard.Set(0,0,2,true);
+            var position = new Position(0, 0);
+            sudokuBoard.Set(position, 2, true);
 
-            var candidates = new GeneralCandidateRule(sudokuBoard.Cells).GetCandidates(0, 0);
+            var candidates = new GeneralCandidateRule(sudokuBoard.Cells).GetCandidates(position);
             Assert.Equal(0, candidates.Count);
         }
 
@@ -92,18 +97,19 @@ namespace SudokuSolverTest
         public void should_get_candidates_for_unlocked_cell()
         {
             var sudokuBoard = new SudokuBoard();
-            var candidates = new GeneralCandidateRule(sudokuBoard.Cells).GetCandidates(0,0);
+            var position = new Position(0,0);
+            var candidates = new GeneralCandidateRule(sudokuBoard.Cells).GetCandidates(position);
             Assert.Equal(9, candidates.Count);
 
-            sudokuBoard.Set(0,1,2);
-            sudokuBoard.Set(0,2,3);
-            sudokuBoard.Set(0,3,4);
-            sudokuBoard.Set(0,4,5);
-            sudokuBoard.Set(0,5,6);
-            sudokuBoard.Set(0,6,7);
-            sudokuBoard.Set(0,7,8);
-            sudokuBoard.Set(0,8,9);
-            candidates = new GeneralCandidateRule(sudokuBoard.Cells).GetCandidates(0, 0);
+            sudokuBoard.Set(new Position(0, 1), 2, false);
+            sudokuBoard.Set(new Position(0, 2), 3, false);
+            sudokuBoard.Set(new Position(0, 3), 4, false);
+            sudokuBoard.Set(new Position(0, 4), 5, false);
+            sudokuBoard.Set(new Position(0, 5), 6, false);
+            sudokuBoard.Set(new Position(0, 6), 7, false);
+            sudokuBoard.Set(new Position(0, 7), 8, false);
+            sudokuBoard.Set(new Position(0, 8), 9, false);
+            candidates = new GeneralCandidateRule(sudokuBoard.Cells).GetCandidates(position);
             Assert.Equal(1, candidates.Count);
             Assert.Equal(1, candidates.First());
         }
@@ -112,10 +118,13 @@ namespace SudokuSolverTest
         public void should_not_break_the_unique_rule()
         {
             var sudokuBoard = new SudokuBoard();
-            sudokuBoard.Set(0,0,1);
-            sudokuBoard.Set(0,1,1);
-            Assert.Equal(1,sudokuBoard.Get(0,0).Value);
-            Assert.NotEqual(1, sudokuBoard.Get(0,1).Value);
+            var position = new Position(0, 0);
+            sudokuBoard.Set(position, 1, false);
+            Assert.Equal(1,sudokuBoard.Get(position).Value);
+            
+            position = new Position(0, 1);
+            sudokuBoard.Set(position, 1, false);
+            Assert.NotEqual(1, sudokuBoard.Get(position).Value);
         }
 
         [Fact]

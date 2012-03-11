@@ -39,24 +39,19 @@ namespace SudokuSolverTest
             get { return _cells; }
         }
 
-        public bool Set(int xPos, int yPos, int value, bool locked = false)
+        public bool Set(Position position, int value, bool locked)
         {
             if (value == 0)
             {
-                _cells[xPos * 9 + yPos].Value = value;
+                _cells[position.Index].Value = value;
                 return true;
             }
 
-            if (!_candidateRule.GetCandidates(xPos, yPos).Contains(value)) return false;
+            if (!_candidateRule.GetCandidates(position).Contains(value)) return false;
 
-            _cells[xPos*9 + yPos].Value = value;
-            _cells[xPos*9 + yPos].Locked = locked;
+            _cells[position.Index].Value = value;
+            _cells[position.Index].Locked = locked;
             return true;
-        }
-
-        public Cell Get(int xPos, int yPos)
-        {
-            return _cells[xPos * EdgeSize + yPos].Clone;
         }
 
         private void Initlize()
@@ -82,7 +77,8 @@ namespace SudokuSolverTest
         {
             for (var i = 0; i < BoardSize; i++)
             {
-                _cells[i].Candidates = new Stack<int>(_candidateRule.GetCandidates(i));
+                var position = new Position(i);
+                _cells[i].Candidates = new Stack<int>(_candidateRule.GetCandidates(position));
             }
             for (var i = 0; i < BoardSize;)
             {
@@ -90,7 +86,7 @@ namespace SudokuSolverTest
                 {
                     if (++i == BoardSize) break;
 
-                    _cells[i].Candidates = new Stack<int>(_candidateRule.GetCandidates(i));
+                    _cells[i].Candidates = new Stack<int>(_candidateRule.GetCandidates(new Position(i)));
                     continue;
                 }
                 while (--i != 0)
@@ -103,6 +99,11 @@ namespace SudokuSolverTest
                     if (!_cells[i].Locked) break;
                 }
             }
+        }
+
+        public Cell Get(Position position)
+        {
+            return _cells[position.Index].Clone;
         }
     }
 }
