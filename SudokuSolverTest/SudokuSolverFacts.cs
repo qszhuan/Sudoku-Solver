@@ -89,7 +89,7 @@ namespace SudokuSolverTest
             var position = new Position(0, 0);
             sudokuBoard.Set(position, 2, true);
 
-            var candidates = new GeneralCandidateRule(sudokuBoard.Cells).GetCandidates(position);
+            var candidates = new GeneralCandidateRule(sudokuBoard).GetCandidates(position);
             Assert.Equal(0, candidates.Count);
         }
 
@@ -98,7 +98,7 @@ namespace SudokuSolverTest
         {
             var sudokuBoard = new SudokuBoard();
             var position = new Position(0,0);
-            var candidates = new GeneralCandidateRule(sudokuBoard.Cells).GetCandidates(position);
+            var candidates = new GeneralCandidateRule(sudokuBoard).GetCandidates(position);
             Assert.Equal(9, candidates.Count);
 
             sudokuBoard.Set(new Position(0, 1), 2, false);
@@ -109,7 +109,7 @@ namespace SudokuSolverTest
             sudokuBoard.Set(new Position(0, 6), 7, false);
             sudokuBoard.Set(new Position(0, 7), 8, false);
             sudokuBoard.Set(new Position(0, 8), 9, false);
-            candidates = new GeneralCandidateRule(sudokuBoard.Cells).GetCandidates(position);
+            candidates = new GeneralCandidateRule(sudokuBoard).GetCandidates(position);
             Assert.Equal(1, candidates.Count);
             Assert.Equal(1, candidates.First());
         }

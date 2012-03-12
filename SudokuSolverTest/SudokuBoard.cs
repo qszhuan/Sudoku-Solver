@@ -60,7 +60,7 @@ namespace SudokuSolverTest
             {
                 _cells.Add(new CellWrapper());
             }
-            _candidateRule = new GeneralCandidateRule(_cells);
+            _candidateRule = new GeneralCandidateRule(this);
         }
 
         public void Make(List<int> dataList)
